@@ -25,18 +25,18 @@ To clone and run this application, you'll need Git and Node.js
 
 From the command line:
 
-``
+```
 #Clone this repository
-git@github.com:Prgrssn/uptrax.git
+$ git@github.com:Prgrssn/uptrax.git
 
 #CD into the repository
-cd uptrax
+$ cd uptrax
 
 #Install client side dependencies
-cd server
-npm install
+$ cd server
+$ npm install
 
 #Install server side dependencies
-cd ../client
-npm install
-``
+$ cd ../client
+$ npm install
+```
