@@ -1,30 +1,78 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Card, Button, Form } from "react-bootstrap";
-import { useAuth } from "../../contexts/AuthContext";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+// import { useAuth } from "../../contexts/AuthContext";
+import { auth } from "../../firebase";
 import "./Signup.scss";
 
 export default function Signup() {
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const astRef = useRef();
-  const firstAidRef = useRef();
-  const { signup } = useAuth();
+  // const firstNameRef = useRef();
+  // const lastNameRef = useRef();
+  // const emailRef = useRef();
+  // const passwordRef = useRef();
+  // const passwordConfirmRef = useRef();
+  // const astRef = useRef();
+  // const firstAidRef = useRef();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const [signupEmail, setSignupEmail] = useState("");
+  // const [signupPassword, setSignupPassword] = useState("");
+  // const [ast, setAst] = useState("");
+  // const [firstAid, setFirstAid] = useState("");
 
-    signup(emailRef.current.value, passwordRef.current.value);
-  };
+  // const handleSignup = (event) => {
+  //   event.preventDefault();
+
+  //   const user = createUserWithEmailAndPassword(
+  //     auth,
+  //     event.target.email.value,
+  //     event.target.password.value
+  //   )
+  //     .then((userCredential) => {
+  //       const user = userCredential.user;
+  //       console.log(user);
+  //     })
+  //     .catch((err) => console.log(err.code));
+
+  //   console.log(user);
+  // };
 
   return (
     <article className="login">
-      <Card className="login-card">
+      <h2>Sign Up</h2>
+      <form className="form">
+        <section className="form__group">
+          <label>First Name</label>
+          <input type="text" name="firstName" />
+        </section>
+
+        <section className="form__group">
+          <label>Last Name</label>
+          <input type="text" name="lastName" />
+        </section>
+
+        <section className="form__group">
+          <label>Email</label>
+          <input type="email" name="email" />
+        </section>
+
+        <section className="form__group">
+          <label>Password</label>
+          <input type="password" name="password" />
+        </section>
+
+        <section className="form__group">
+          <label>Confirm Password</label>
+          <input type="password" name="passwordConf" />
+        </section>
+
+        <button type="submit" className="form__button">
+          Sign Up
+        </button>
+      </form>
+      {/* <Card className="login-card">
         <Card.Body className="login-card__body">
           <h2 className="login-card__header">Sign Up</h2>
-          <Form className="login-form">
+          <Form className="login-form" onSubmit={handleSignup}>
             <Form.Group id="firstname" className="login-form__group">
               <Form.Label className="login-form__label">First Name</Form.Label>
               <Form.Control
@@ -87,7 +135,7 @@ export default function Signup() {
             <Button type="submit">Sign Up</Button>
           </Form>
         </Card.Body>
-      </Card>
+      </Card> */}
       <div>Already Have an Account? Log in.</div>
     </article>
   );
