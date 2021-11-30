@@ -3,17 +3,19 @@ import { Card, Button, Alert } from "react-bootstrap";
 import React, { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../contexts/AuthContext";
 
 export default function Home() {
   const [error, setError] = useState("");
-  const { currentUser } = useAuth();
+  const { currentUser, logout } = useAuth();
   let navigate = useNavigate();
 
   function handleLogout() {
     setError("");
     logout()
-      .then(navigate("/login"))
+      .then(() => {
+        localStorage.removeItem("user");
+        navigate("/login");
+      })
       .catch((err) => setError(err));
   }
 

@@ -4,7 +4,7 @@ import { Card, Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Signup() {
+export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuth();
@@ -20,7 +20,7 @@ export default function Signup() {
         setError("");
         setLoading(true);
         const user = userCredential.user;
-        console.log(user);
+        localStorage.setItem("user", JSON.stringify(user));
         navigate("/");
       })
       .catch((err) => setError(err));
@@ -57,6 +57,9 @@ export default function Signup() {
           </Form>
         </Card.Body>
       </Card>
+      <div>
+        <Link to="/forgot-pass">Forgot Password?</Link>
+      </div>
       <div>
         Not a user? <Link to="/signup"> Sign Up!</Link>
       </div>
