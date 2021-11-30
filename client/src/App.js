@@ -2,13 +2,23 @@
 import "./App.scss";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
-// import { AuthProvider } from "./contexts/AuthContext";
+import UserCard from "./components/UserCard/UserCard";
+import { AuthProvider } from "./contexts/AuthContext";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/HomePage/Home";
 
 function App() {
   return (
     <div className="App">
-      <Signup />
-      <Login />
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </AuthProvider>
+      </Router>
     </div>
   );
 }

@@ -1,77 +1,46 @@
-import React, { useRef, useState } from "react";
-import { Card, Button, Form } from "react-bootstrap";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { useAuth } from "../../contexts/AuthContext";
-import { auth } from "../../firebase";
+import React, { useState, useRef } from "react";
+import { Card, Form, Button, Alert } from "react-bootstrap";
+import { useAuth } from "../../contexts/AuthContext";
+import { Link } from "react-router-dom";
 import "./Signup.scss";
 
 export default function Signup() {
-  // const firstNameRef = useRef();
-  // const lastNameRef = useRef();
-  // const emailRef = useRef();
-  // const passwordRef = useRef();
-  // const passwordConfirmRef = useRef();
-  // const astRef = useRef();
-  // const firstAidRef = useRef();
+  const firstNameRef = useRef();
+  const lastNameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const astRef = useRef();
+  const firstAidRef = useRef();
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  // const [signupEmail, setSignupEmail] = useState("");
-  // const [signupPassword, setSignupPassword] = useState("");
-  // const [ast, setAst] = useState("");
-  // const [firstAid, setFirstAid] = useState("");
+  const handleSignup = (event) => {
+    event.preventDefault();
 
-  // const handleSignup = (event) => {
-  //   event.preventDefault();
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match!");
+    }
 
-  //   const user = createUserWithEmailAndPassword(
-  //     auth,
-  //     event.target.email.value,
-  //     event.target.password.value
-  //   )
-  //     .then((userCredential) => {
-  //       const user = userCredential.user;
-  //       console.log(user);
-  //     })
-  //     .catch((err) => console.log(err.code));
+    signup(emailRef.current.value, passwordRef.current.value)
+      .then((userCredential) => {
+        setError("");
+        setLoading(true);
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((err) => setError(err));
 
-  //   console.log(user);
-  // };
+    setLoading(false);
+  };
 
   return (
     <article className="login">
-      <h2>Sign Up</h2>
-      <form className="form">
-        <section className="form__group">
-          <label>First Name</label>
-          <input type="text" name="firstName" />
-        </section>
-
-        <section className="form__group">
-          <label>Last Name</label>
-          <input type="text" name="lastName" />
-        </section>
-
-        <section className="form__group">
-          <label>Email</label>
-          <input type="email" name="email" />
-        </section>
-
-        <section className="form__group">
-          <label>Password</label>
-          <input type="password" name="password" />
-        </section>
-
-        <section className="form__group">
-          <label>Confirm Password</label>
-          <input type="password" name="passwordConf" />
-        </section>
-
-        <button type="submit" className="form__button">
-          Sign Up
-        </button>
-      </form>
-      {/* <Card className="login-card">
+      <Card className="login-card">
         <Card.Body className="login-card__body">
           <h2 className="login-card__header">Sign Up</h2>
+          {error && <Alert variant="danger">{error}</Alert>}
           <Form className="login-form" onSubmit={handleSignup}>
             <Form.Group id="firstname" className="login-form__group">
               <Form.Label className="login-form__label">First Name</Form.Label>
@@ -135,8 +104,10 @@ export default function Signup() {
             <Button type="submit">Sign Up</Button>
           </Form>
         </Card.Body>
-      </Card> */}
-      <div>Already Have an Account? Log in.</div>
+      </Card>
+      <div>
+        Already have an Account? <Link to="/login">Log In!</Link>
+      </div>
     </article>
   );
 }
