@@ -21,6 +21,7 @@ export default function Login() {
         setLoading(true);
         const user = userCredential.user;
         localStorage.setItem("user", JSON.stringify(user));
+
         navigate("/");
       })
       .catch((err) => setError(err));

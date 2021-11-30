@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ForgotPass from "./components/ForgotPass/ForgotPass";
 import AreaCard from "./components/AreaCard/AreaCard";
+import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 
 // function PrivateOutlet() {
 //   const { currentUser } = useAuth();
@@ -42,6 +43,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-pass" element={<ForgotPass />} />
+            <Route path="/update-profile" element={<UpdateProfile />} />
           </Routes>
         </AuthProvider>
       </Router>
