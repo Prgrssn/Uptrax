@@ -17,7 +17,6 @@ export default function Home() {
     setError("");
     logout()
       .then(() => {
-        localStorage.removeItem("user");
         navigate("/login");
       })
       .catch((err) => setError(err));
