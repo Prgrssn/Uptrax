@@ -21,7 +21,7 @@ export default function ForgotPass() {
         setMessage("Check your inbox for reset link");
         navigate("/login");
       })
-      .catch((error) => setError(error));
+      .catch((error) => setError(error.message));
 
     setLoading(false);
   }

@@ -9,6 +9,10 @@ export default function Home() {
   const { currentUser, logout } = useAuth();
   let navigate = useNavigate();
 
+  console.log(currentUser);
+  const firebaseID = currentUser.uid;
+  console.log(firebaseID);
+
   function handleLogout() {
     setError("");
     logout()
@@ -24,8 +28,8 @@ export default function Home() {
         <Card.Body>
           <h2>Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <strong>Email:</strong> {currentUser.email}
-          <Link to="/update-profil">Update Profile</Link>
+          {/* <strong>Email:</strong> {currentUser.email} */}
+          <Link to="/update-profile">Update Profile</Link>
         </Card.Body>
       </Card>
       <Button variant="link" onClick={handleLogout}>
