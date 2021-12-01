@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function CreateProfile() {
   const displayNameRef = useRef();
-  const emailRef = useRef();
   const astRef = useRef();
   const firstAidRef = useRef();
   const [error, setError] = useState("");
@@ -16,7 +15,7 @@ export default function CreateProfile() {
   const { currentUser } = useAuth();
   console.log(currentUser);
 
-  const handleUpdate = (event) => {
+  const handleCreate = (event) => {
     event.preventDefault();
   };
 
@@ -26,12 +25,12 @@ export default function CreateProfile() {
   };
 
   return (
-    <article className="login">
-      <Card className="login-card">
-        <Card.Body className="login-card__body">
-          <h2 className="login-card__header">Update Profile</h2>
+    <article className="create">
+      <Card className="create-card">
+        <Card.Body className="lo-card__body">
+          <h2 className="login-card__header">Create Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          <Form className="login-form" onSubmit={handleUpdate}>
+          <Form className="login-form" onSubmit={handleCreate}>
             <Form.Group id="firstname" className="login-form__group">
               <Form.Label className="login-form__label">
                 Display Name
@@ -43,20 +42,20 @@ export default function CreateProfile() {
                 require
               />
             </Form.Group>
-            <Form.Check
-              type="checkbox"
-              id="ast-checkbox"
-              label="I have my AST Certification"
-              ref={astRef}
-            />
-            <Form.Check
-              type="checkbox"
-              id="firstaid-checkbox"
-              label="I have First Aid Certification"
-              ref={firstAidRef}
-            />
+            <Form.Group>
+              <Form.Select ref={astRef}>
+                <option>AST Certification</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </Form.Select>
+              <Form.Select ref={firstAidRef}>
+                <option>First Aid Certification</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </Form.Select>
+            </Form.Group>
             <div className="login-form__buttons">
-              <Button type="submit">Update</Button>
+              <Button type="submit">Create</Button>
               <Button type="button" onClick={handleCancel}>
                 Cancel
               </Button>
