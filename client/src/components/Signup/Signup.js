@@ -31,7 +31,7 @@ export default function Signup() {
         setLoading(true);
         const user = userCredential.user;
         console.log(user);
-        navigate("/dashboard");
+        navigate("/update-profile");
       })
       .catch((err) => setError(err));
 
@@ -45,7 +45,7 @@ export default function Signup() {
           <h2 className="login-card__header">Sign Up</h2>
           {error && <Alert variant="danger">{error.message}</Alert>}
           <Form className="login-form" onSubmit={handleSignup}>
-            <Form.Group id="firstname" className="login-form__group">
+            {/* <Form.Group id="firstname" className="login-form__group">
               <Form.Label className="login-form__label">First Name</Form.Label>
               <Form.Control
                 type="text"
@@ -62,7 +62,7 @@ export default function Signup() {
                 className="login-form__value"
                 required
               />
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group id="email" className="login-form__group">
               <Form.Label className="login-form__label">Email</Form.Label>
               <Form.Control
@@ -92,7 +92,7 @@ export default function Signup() {
                 required
               />
             </Form.Group>
-            <Form.Check
+            {/* <Form.Check
               type="checkbox"
               id="ast-checkbox"
               label="I have my AST Certification"
@@ -103,7 +103,7 @@ export default function Signup() {
               id="firstaid-checkbox"
               label="I have First Aid Certification"
               ref={firstAidRef}
-            />
+            /> */}
             <Button type="submit">Sign Up</Button>
           </Form>
         </Card.Body>

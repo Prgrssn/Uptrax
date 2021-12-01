@@ -1,17 +1,14 @@
+import "./CreateProfile.scss";
 import React, { useState, useRef } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export default function UpdateProfile() {
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
+export default function CreateProfile() {
+  const displayNameRef = useRef();
   const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
   const astRef = useRef();
   const firstAidRef = useRef();
-  const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
@@ -36,19 +33,14 @@ export default function UpdateProfile() {
           {error && <Alert variant="danger">{error}</Alert>}
           <Form className="login-form" onSubmit={handleUpdate}>
             <Form.Group id="firstname" className="login-form__group">
-              <Form.Label className="login-form__label">First Name</Form.Label>
+              <Form.Label className="login-form__label">
+                Display Name
+              </Form.Label>
               <Form.Control
                 type="text"
-                ref={firstNameRef}
+                ref={displayNameRef}
                 className="login-form__value"
-              />
-            </Form.Group>
-            <Form.Group id="lastname" className="login-form__group">
-              <Form.Label className="login-form__label">Last Name</Form.Label>
-              <Form.Control
-                type="text"
-                ref={lastNameRef}
-                className="login-form__value"
+                require
               />
             </Form.Group>
             <Form.Check
