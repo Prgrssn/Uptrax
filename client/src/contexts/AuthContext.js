@@ -12,11 +12,19 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password);
+    return auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((response) => {
+        setCurrentUser(response.user);
+        return response.user;
+      });
   }
 
   function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password);
+    return auth.signInWithEmailAndPassword(email, password).then((response) => {
+      setCurrentUser(response.user);
+      return response.user;
+    });
   }
 
   function logout() {

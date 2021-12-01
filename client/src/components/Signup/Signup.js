@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Signup.scss";
 
 export default function Signup() {
@@ -16,6 +16,8 @@ export default function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  let navigate = useNavigate();
+
   const handleSignup = (event) => {
     event.preventDefault();
 
@@ -29,6 +31,7 @@ export default function Signup() {
         setLoading(true);
         const user = userCredential.user;
         console.log(user);
+        navigate("/dashboard");
       })
       .catch((err) => setError(err));
 
@@ -40,7 +43,7 @@ export default function Signup() {
       <Card className="login-card">
         <Card.Body className="login-card__body">
           <h2 className="login-card__header">Sign Up</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
+          {error && <Alert variant="danger">{error.message}</Alert>}
           <Form className="login-form" onSubmit={handleSignup}>
             <Form.Group id="firstname" className="login-form__group">
               <Form.Label className="login-form__label">First Name</Form.Label>
