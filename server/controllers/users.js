@@ -21,8 +21,6 @@ exports.getUserById = (req, res) => {
 exports.postUser = (req, res) => {
   knex("users")
     .insert(req.body)
-    .then((user) => {
-      res.json({ message: "user was added successfully" });
-    })
-    .catch((err) => res.sendStatus(400));
+    .then(res.json({ message: "user was added successfully" }))
+    .catch(res.sendStatus(400));
 };
