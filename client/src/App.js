@@ -9,6 +9,7 @@ import ForgotPass from "./components/ForgotPass/ForgotPass";
 import AreaCard from "./components/AreaCard/AreaCard";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 import CreateProfile from "./components/CreateProfile/CreateProfile";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Router forceRefresh={true}>
         <AuthProvider>
           <Routes>
-            <Route exact path="/" element={<AreaCard />} />
+            <Route exact path="/" element={<HomePage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route

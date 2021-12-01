@@ -29,7 +29,7 @@ export default function Home() {
           <h2>Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           {/* <strong>Email:</strong> {currentUser.email} */}
-          <Link to="/update-profile">Update Profile</Link>
+          <Link to="/update">Update Profile</Link>
         </Card.Body>
       </Card>
       <Button variant="link" onClick={handleLogout}>
