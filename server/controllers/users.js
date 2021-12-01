@@ -17,3 +17,12 @@ exports.getUserById = (req, res) => {
       return res.sendStatus(404);
     });
 };
+
+exports.postUser = (req, res) => {
+  knex("users")
+    .insert(req.body)
+    .then((user) => {
+      res.json({ message: "user was added successfully" });
+    })
+    .catch((err) => res.sendStatus(400));
+};

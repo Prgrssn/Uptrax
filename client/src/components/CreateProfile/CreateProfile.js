@@ -14,7 +14,6 @@ export default function CreateProfile() {
   let navigate = useNavigate();
 
   const { currentUser } = useAuth();
-  console.log(currentUser);
 
   const handleCreate = (event) => {
     event.preventDefault();
@@ -35,7 +34,7 @@ export default function CreateProfile() {
 
     if (yearsExp === "Years of Experience") {
       return setError(
-        "Please let us know how many years of backcountry experience you have"
+        "Please tell us how many years of backcountry experience you have"
       );
     }
 
@@ -81,7 +80,7 @@ export default function CreateProfile() {
                 <option value="No">No</option>
               </Form.Select>
               <Form.Select ref={expRef} required>
-                <option>Years of Experience</option>
+                <option>Years of Backcountry Exp</option>
                 <option value="0-1">0-1 Years</option>
                 <option value="2-4">2-4 Years</option>
                 <option value="5+">5+ Years</option>
