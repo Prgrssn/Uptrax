@@ -20,8 +20,8 @@ export default function Login() {
         setError("");
         setLoading(true);
         const user = userCredential.user;
-        localStorage.setItem("user", JSON.stringify(user));
-        navigate("/");
+        console.log(user);
+        navigate("/dashboard");
       })
       .catch((err) => setError(err));
 
@@ -33,7 +33,7 @@ export default function Login() {
       <Card className="login-card">
         <Card.Body className="login-card__body">
           <h2 className="login-card__header">Log In</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
+          {error && <Alert variant="danger">{error.message}</Alert>}
           <Form className="login-form" onSubmit={handleLogin}>
             <Form.Group id="email" className="login-form__group">
               <Form.Label className="login-form__label">Email</Form.Label>
