@@ -5,7 +5,6 @@ import "./HomePage.scss";
 export default function HomePage() {
   return (
     <div>
-      <h2>UpTrax</h2>
       <Card>
         <Card.Body>
           <Link to="/login">Login</Link>
