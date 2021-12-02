@@ -31,7 +31,7 @@ export default function Signup() {
         setLoading(true);
         const user = userCredential.user;
         console.log(user);
-        navigate("/update-profile");
+        navigate("/create");
       })
       .catch((err) => setError(err));
 
