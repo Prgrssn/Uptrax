@@ -20,8 +20,8 @@ export default function Login() {
         setError("");
         setLoading(true);
         const user = userCredential.user;
-        console.log(user);
-        navigate("/dashboard");
+        console.log(user.uid);
+        navigate("/dashboard/:firebase_id");
       })
       .catch((err) => setError(err));
 

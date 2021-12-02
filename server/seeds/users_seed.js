@@ -5,7 +5,7 @@ exports.seed = function (knex) {
       return knex("users").insert([
         {
           id: 1,
-          firebase_id: "hlsafhjkasufoa2398rhnska",
+          firebase_id: "amNaoVRRLUUxMSYQ8NOyLdW38Yk1",
           name: "Bill Nye",
           user_avatar:
             "https://cdn.geekwire.com/wp-content/uploads/2019/08/A9_06020-630x420.jpg",
@@ -15,7 +15,7 @@ exports.seed = function (knex) {
         },
         {
           id: 2,
-          firebase_id: "asdlkfhuas7826hjkdshaf8",
+          firebase_id: "NDBqYcEKURSPWJ9I7hTdD9smQtm2",
           name: "Robert Downey",
           user_avatar:
             "https://static.wikia.nocookie.net/snl/images/e/e3/Robert_Downey_Jr..jpg/revision/latest/scale-to-width-down/350?cb=20200725224545",
@@ -25,7 +25,7 @@ exports.seed = function (knex) {
         },
         {
           id: 3,
-          firebase_id: "jdsahkfgasyfgaky",
+          firebase_id: "kB6oAQOLjLepb8x3tuXr5rqfEG73",
           name: "Ernie Hsiung",
           user_avatar:
             "https://pbs.twimg.com/media/EPAwEWsUwAAgsRM?format=jpg&name=900x900",

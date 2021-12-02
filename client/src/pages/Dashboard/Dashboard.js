@@ -14,6 +14,7 @@ export default function Home() {
   let navigate = useNavigate();
 
   const firebaseID = currentUser.uid;
+  const ast = Boolean(Number(user.ast)).toString();
 
   useEffect(() => {
     axios
@@ -24,8 +25,6 @@ export default function Home() {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  console.log(user);
 
   function handleUpdate() {
     navigate("/update");
@@ -52,7 +51,7 @@ export default function Home() {
           </div>
           <div>
             <h4>{user.name}</h4>
-            <p>AST: {user.ast}</p>
+            <p>AST: {ast}</p>
             <p>Years of experience in the backcountry: {user.exp}</p>
             <p>{user.bio}</p>
           </div>
