@@ -2,14 +2,14 @@ const knex = require("knex")(require("../knexfile").development);
 
 exports.getUsers = (_req, res) => {
   knex("users")
-    .then((areas) => res.json(areas))
+    .then((users) => res.json(users))
     .catch((err) => console.log(err));
 };
 
 exports.getUserById = (req, res) => {
   knex("users")
     .select()
-    .where({ user_id: req.params.id })
+    .where({ id: req.params.id })
     .then((user) => {
       if (user) {
         return res.json(user);
@@ -19,8 +19,18 @@ exports.getUserById = (req, res) => {
 };
 
 exports.postUser = (req, res) => {
+  const { name, firebase_id, exp, ast, bio } = req.body;
+  const user = {
+    name,
+    firebase_id,
+    exp,
+    ast,
+    bio,
+    user_avatar: "/tour.jpeg",
+  };
+
   knex("users")
-    .insert(req.body)
+    .insert(user)
     .then(res.json({ message: "user was added successfully" }))
     .catch(res.sendStatus(400));
 };

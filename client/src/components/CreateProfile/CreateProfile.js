@@ -3,12 +3,15 @@ import React, { useState, useRef } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import axios, { Axios } from "axios";
+
+const userAPI = `http://localhost:8080/api/v1/users`;
 
 export default function CreateProfile() {
   const displayNameRef = useRef();
   const astRef = useRef();
-  const firstAidRef = useRef();
   const expRef = useRef();
+  const bioRef = useRef();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
@@ -18,21 +21,17 @@ export default function CreateProfile() {
   const handleCreate = (event) => {
     event.preventDefault();
 
-    const displayName = displayNameRef.current.value;
-    const ast = astRef.current.value;
-    const firstAid = firstAidRef.current.value;
-    const yearsExp = expRef.current.value;
-    const firebaseID = currentUser.uid;
+    const name = displayNameRef.current.value;
+    const ast = JSON.parse(astRef.current.value.toLowerCase());
+    const exp = parseInt(expRef.current.value);
+    const firebase_id = currentUser.uid;
+    const bio = bioRef.current.value;
 
     if (ast === "AST Certification") {
       return setError("Please tell us if you have your AST");
     }
 
-    if (firstAid === "First Aid Certification") {
-      return setError("Please tell us if you have First Aid certification");
-    }
-
-    if (yearsExp === "Years of Experience") {
+    if (exp === "Years of Experience") {
       return setError(
         "Please tell us how many years of backcountry experience you have"
       );
@@ -40,13 +39,17 @@ export default function CreateProfile() {
 
     setError("");
 
-    const user = { displayName, ast, firstAid, yearsExp, firebaseID };
-    console.log(user);
-  };
+    const user = { name, ast, exp, firebase_id, bio };
+    axios
+      .post(userAPI, user)
+      .then(() => {
+        setError("");
+        setLoading(true);
+        navigate("/dashboard");
+      })
+      .catch((err) => setError(err));
 
-  const handleCancel = (event) => {
-    event.preventDefault();
-    navigate("/dashboard");
+    setLoading(false);
   };
 
   return (
@@ -57,9 +60,6 @@ export default function CreateProfile() {
           {error && <Alert variant="danger">{error}</Alert>}
           <Form className="create-form" onSubmit={handleCreate}>
             <Form.Group id="firstname" className="create-form__group">
-              <Form.Label className="create-form__label">
-                Display Name
-              </Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Display Name"
@@ -71,26 +71,26 @@ export default function CreateProfile() {
             <Form.Group>
               <Form.Select ref={astRef} required>
                 <option>AST Certification</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-              </Form.Select>
-              <Form.Select ref={firstAidRef} required>
-                <option>First Aid Certification</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
               </Form.Select>
               <Form.Select ref={expRef} required>
                 <option>Years of Backcountry Exp</option>
-                <option value="0-1">0-1 Years</option>
-                <option value="2-4">2-4 Years</option>
-                <option value="5+">5+ Years</option>
+                <option value="0">None</option>
+                <option value="1">1 Year</option>
+                <option value="2">2 Years</option>
+                <option value="3">3 Years</option>
+                <option value="4">4 Years</option>
+                <option value="5">5+ Years</option>
               </Form.Select>
             </Form.Group>
+            <Form.Control
+              as="textarea"
+              placeholder="Tell us a bit about yourself!"
+              ref={bioRef}
+            />
             <div className="login-form__buttons">
               <Button type="submit">Create</Button>
-              <Button type="button" onClick={handleCancel}>
-                Cancel
-              </Button>
             </div>
           </Form>
         </Card.Body>
