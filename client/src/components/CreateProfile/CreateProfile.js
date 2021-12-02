@@ -45,7 +45,7 @@ export default function CreateProfile() {
       .then(() => {
         setError("");
         setLoading(true);
-        navigate("/dashboard");
+        navigate(`/dashboard/${firebase_id}`);
       })
       .catch((err) => setError(err));
 

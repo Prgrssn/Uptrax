@@ -9,7 +9,7 @@ exports.getUsers = (_req, res) => {
 exports.getUserById = (req, res) => {
   knex("users")
     .select()
-    .where({ id: req.params.id })
+    .where({ firebase_id: req.params.firebase_id })
     .then((user) => {
       if (user) {
         return res.json(user);

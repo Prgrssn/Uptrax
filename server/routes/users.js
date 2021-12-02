@@ -3,8 +3,8 @@ const { getUsers, getUserById, postUser } = require("../controllers/users");
 
 router.get("/", getUsers);
 
-router.get("/:id", getUserById);
-
 router.post("/", postUser);
+
+router.get("/:firebase_id", getUserById);
 
 module.exports = router;

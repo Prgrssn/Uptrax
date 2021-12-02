@@ -19,9 +19,7 @@ export default function Login() {
       .then((userCredential) => {
         setError("");
         setLoading(true);
-        const user = userCredential.user;
-        console.log(user);
-        navigate("/dashboard");
+        navigate(`/dashboard/${userCredential.uid}`);
       })
       .catch((err) => setError(err));
 
