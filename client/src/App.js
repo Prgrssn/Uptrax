@@ -10,12 +10,14 @@ import AreaCard from "./components/AreaCard/AreaCard";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 import CreateProfile from "./components/CreateProfile/CreateProfile";
 import HomePage from "./pages/HomePage/HomePage";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <div className="App">
       <Router forceRefresh={true}>
         <AuthProvider>
+          <Header />
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route path="/signup" element={<Signup />} />
