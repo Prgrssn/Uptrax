@@ -39,6 +39,8 @@ export default function Home() {
       .catch((err) => setError(err));
   }
 
+  console.log(user.user_avatar);
+
   return (
     <>
       <Card>
@@ -46,7 +48,7 @@ export default function Home() {
           <h2>Profile</h2>
           <div>
             <div>
-              <img src={user.user_avatar} alt="" />
+              <img src={user.user_avatar} alt={user.name} />
             </div>
           </div>
           <div>
