@@ -1,26 +1,35 @@
 import "./Dashboard.scss";
 import { Card, Button, Alert } from "react-bootstrap";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
-// const userAPI = "http://localhost:8080/api/v1/users/7";
+const userAPI = `http://localhost:8080/api/v1/users`;
 
 export default function Home() {
   const [error, setError] = useState("");
   const { currentUser, logout } = useAuth();
-  const [user, setUser] = useState();
+  const [user, setUser] = useState([]);
   let navigate = useNavigate();
 
   const firebaseID = currentUser.uid;
 
-  // axios
-  //   .get(userAPI)
-  //   .then((res) => {
-  //     setUser(res.data);
-  //   })
-  //   .catch();
+  useEffect(() => {
+    axios
+      .get(`${userAPI}/${firebaseID}`)
+      .then((res) => {
+        const userData = res.data[0];
+        setUser(userData);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(user);
+
+  function handleUpdate() {
+    navigate("/update");
+  }
 
   function handleLogout() {
     setError("");
@@ -36,17 +45,24 @@ export default function Home() {
       <Card>
         <Card.Body>
           <h2>Profile</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
-          {/* <strong>Email:</strong> {currentUser.email} */}
-          <Link to="/update">Update Profile</Link>
+          <div>
+            <div>
+              <img src={user.user_avatar} alt="" />
+            </div>
+          </div>
+          <div>
+            <h4>{user.name}</h4>
+            <p>AST: {user.ast}</p>
+            <p>Years of experience in the backcountry: {user.exp}</p>
+            <p>{user.bio}</p>
+          </div>
         </Card.Body>
       </Card>
       <div>
         <img src="" alt="" />
       </div>
-      <Button variant="link" onClick={handleLogout}>
-        Log Out
-      </Button>
+      <Button onClick={handleUpdate}>Update Profile</Button>
+      <Button onClick={handleLogout}>Log Out</Button>
     </>
   );
 }
