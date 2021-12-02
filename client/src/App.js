@@ -15,9 +15,9 @@ import Header from "./components/Header/Header";
 function App() {
   return (
     <div className="App">
-      <Header />
       <Router forceRefresh={true}>
         <AuthProvider>
+          <Header />
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route path="/signup" element={<Signup />} />
