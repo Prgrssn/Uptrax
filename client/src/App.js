@@ -22,6 +22,7 @@ function App() {
             <Route exact path="/" element={<HomePage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/areas" element={<AreaCard />} />
             <Route
               path="/dashboard/:firebase_id"
               element={
