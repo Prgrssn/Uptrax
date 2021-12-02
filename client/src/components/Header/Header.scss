@@ -1,0 +1,26 @@
+@use "../../styles/partials/global.scss";
+@use "../../styles/partials/variables.scss";
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #160f29;
+  height: 5rem;
+
+  &__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f3dfc1;
+  }
+
+  &__profile {
+    color: #f3dfc1;
+  }
+
+  &__areas {
+    color: #f3dfc1;
+  }
+}

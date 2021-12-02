@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Prgrssn/uptrax#readme",
   "dependencies": {
+    "@mui/icons-material": "^5.2.0",
     "concurrently": "^6.4.0"
   }
 }

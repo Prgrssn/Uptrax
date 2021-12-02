@@ -1,0 +1,10 @@
+@use "./typography.scss";
+@use "./variables.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+$logo-font: logo-font;
