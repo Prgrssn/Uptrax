@@ -1,7 +1,12 @@
 @use "../../styles/partials/variables" as *;
 
+body {
+  background-color: $champagne;
+}
+
 .area-section {
   background-color: $champagne;
+  padding: 1rem 0;
 
   &__title {
     background-color: $champagne;
