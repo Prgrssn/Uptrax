@@ -11,6 +11,7 @@ import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 import CreateProfile from "./components/CreateProfile/CreateProfile";
 import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
+import Areas from "./pages/Areas/Areas";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             <Route exact path="/" element={<HomePage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/areas" element={<AreaCard />} />
+            <Route path="/areas" element={<Areas />} />
             <Route
               path="/dashboard/:firebase_id"
               element={
