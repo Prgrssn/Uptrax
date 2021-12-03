@@ -43,7 +43,6 @@ export default function Header() {
 
   const handleLogout = () => {
     setAnchorEl(null);
-    // setError("");
     logout()
       .then(() => {
         navigate("/login");
