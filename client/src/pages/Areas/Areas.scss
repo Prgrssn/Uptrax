@@ -1,0 +1,10 @@
+@use "../../styles/partials/variables" as *;
+
+.area-section {
+  background-color: $champagne;
+
+  &__title {
+    background-color: $champagne;
+    color: $dark-purple;
+  }
+}
