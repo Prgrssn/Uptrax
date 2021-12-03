@@ -1,5 +1,9 @@
+@use "./styles/partials/variables" as *;
+
 .App {
   text-align: center;
+  background-color: $champagne;
+  height: 100vh;
 }
 
 .App-logo {

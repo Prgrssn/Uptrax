@@ -47,9 +47,7 @@ export default function Home() {
         <Card.Body>
           <h2>Profile</h2>
           <div>
-            <div>
-              <img src={user.user_avatar} alt={user.name} />
-            </div>
+            <img src={user.user_avatar} alt={user.name} />
           </div>
           <div>
             <h4>{user.name}</h4>
