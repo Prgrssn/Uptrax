@@ -18,7 +18,7 @@ exports.seed = function (knex) {
           firebase_id: "NDBqYcEKURSPWJ9I7hTdD9smQtm2",
           name: "Robert Downey",
           user_avatar:
-            "https://static.wikia.nocookie.net/snl/images/e/e3/Robert_Downey_Jr..jpg/revision/latest/scale-to-width-down/350?cb=20200725224545",
+            "https://www.californiamuseum.org/sites/main/files/imagecache/medium/main-images/robertdowneyjr_cahalloffameinductee.png?1632975955",
           exp: 0,
           ast: false,
           bio: "I am IronMan",
@@ -26,10 +26,10 @@ exports.seed = function (knex) {
         {
           id: 3,
           firebase_id: "kB6oAQOLjLepb8x3tuXr5rqfEG73",
-          name: "Ernie Hsiung",
+          name: "Ernie",
           user_avatar:
-            "https://pbs.twimg.com/media/EPAwEWsUwAAgsRM?format=jpg&name=900x900",
-          exp: 6,
+            "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/2800/Ernie.Sesame-Street.webp",
+          exp: 5,
           ast: true,
           bio: "Let's code in the backcountry homie",
         },

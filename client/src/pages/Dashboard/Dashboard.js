@@ -43,17 +43,22 @@ export default function Home() {
 
   return (
     <>
+      <img src={`/${user.user_avatar}`} alt="" />
       <Card>
         <Card.Body>
           <h2>Profile</h2>
           <div>
-            <img src={user.user_avatar} alt={user.name} />
-          </div>
-          <div>
-            <h4>{user.name}</h4>
-            <p>AST: {ast}</p>
-            <p>Years of experience in the backcountry: {user.exp}</p>
-            <p>{user.bio}</p>
+            {/* <img src={user.user_avatar} alt={user.name} /> */}
+            <img
+              src="https://www.californiamuseum.org/sites/main/files/imagecache/medium/main-images/robertdowneyjr_cahalloffameinductee.png?1632975955"
+              alt="Ernie is a wizard"
+            />
+            <div>
+              <h4>{user.name}</h4>
+              <p>AST: {ast}</p>
+              <p>Years of experience in the backcountry: {user.exp}</p>
+              <p>{user.bio}</p>
+            </div>
           </div>
         </Card.Body>
       </Card>

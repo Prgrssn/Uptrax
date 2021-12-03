@@ -1,0 +1,21 @@
+.user-card {
+  position: relative;
+  width: 600px;
+  padding: 1rem;
+  max-width: 80vw;
+  height: 50vh;
+  border-radius: 0.25rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 1.125rem 3.3125rem 0 rgba(0, 0, 0, 0.3);
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+}
+
+.user-swipe {
+  position: absolute;
+}
