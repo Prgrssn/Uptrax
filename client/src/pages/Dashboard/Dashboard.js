@@ -57,11 +57,14 @@ export default function Home() {
           </div>
         </Card.Body>
       </Card>
-      <div>
-        <img src="" alt="" />
-      </div>
-      <Button onClick={handleUpdate}>Update Profile</Button>
-      <Button onClick={handleLogout}>Log Out</Button>
+      <section className="dashboard__button-wrap">
+        <button className="dashboard__button" onClick={handleUpdate}>
+          Update Profile
+        </button>
+        <button className="dashboard__button" onClick={handleLogout}>
+          Log Out
+        </button>
+      </section>
     </>
   );
 }
