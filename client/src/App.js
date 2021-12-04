@@ -12,6 +12,7 @@ import CreateProfile from "./components/CreateProfile/CreateProfile";
 import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
 import Areas from "./pages/Areas/Areas";
+import Match from "./pages/Match/Match";
 
 function App() {
   return (
@@ -37,6 +38,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <CreateProfile />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/match/:firebase_id"
+              element={
+                <PrivateRoute>
+                  <Match />
                 </PrivateRoute>
               }
             />

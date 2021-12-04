@@ -43,25 +43,29 @@ export default function Home() {
 
   return (
     <>
+      <img src={`/${user.user_avatar}`} alt="" />
       <Card>
         <Card.Body>
           <h2>Profile</h2>
           <div>
             <img src={user.user_avatar} alt={user.name} />
-          </div>
-          <div>
-            <h4>{user.name}</h4>
-            <p>AST: {ast}</p>
-            <p>Years of experience in the backcountry: {user.exp}</p>
-            <p>{user.bio}</p>
+            <div>
+              <h4>{user.name}</h4>
+              <p>AST: {ast}</p>
+              <p>Years of experience in the backcountry: {user.exp}</p>
+              <p>{user.bio}</p>
+            </div>
           </div>
         </Card.Body>
       </Card>
-      <div>
-        <img src="" alt="" />
-      </div>
-      <Button onClick={handleUpdate}>Update Profile</Button>
-      <Button onClick={handleLogout}>Log Out</Button>
+      <section className="dashboard__button-wrap">
+        <button className="dashboard__button" onClick={handleUpdate}>
+          Update Profile
+        </button>
+        <button className="dashboard__button" onClick={handleLogout}>
+          Log Out
+        </button>
+      </section>
     </>
   );
 }

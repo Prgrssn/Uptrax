@@ -37,6 +37,15 @@ export default function Header() {
     navigate("/areas");
   };
 
+  const handleMatch = () => {
+    setAnchorEl(null);
+    if (!currentUser) {
+      navigate("/login");
+    } else {
+      navigate(`/match/${currentUser.uid}`);
+    }
+  };
+
   const handleHome = () => {
     navigate("/");
   };
@@ -77,7 +86,7 @@ export default function Header() {
           }}
         >
           <MenuItem onClick={handleProfile}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>Match</MenuItem>
+          <MenuItem onClick={handleMatch}>Match</MenuItem>
           <MenuItem onClick={handleAreas}>Areas</MenuItem>
           <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
