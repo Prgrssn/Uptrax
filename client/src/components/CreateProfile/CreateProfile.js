@@ -26,6 +26,7 @@ export default function CreateProfile() {
     const exp = parseInt(expRef.current.value);
     const firebase_id = currentUser.uid;
     const bio = bioRef.current.value;
+    const email = currentUser.email;
 
     if (ast === "AST Certification") {
       return setError("Please tell us if you have your AST");
@@ -39,7 +40,7 @@ export default function CreateProfile() {
 
     setError("");
 
-    const user = { name, ast, exp, firebase_id, bio };
+    const user = { name, ast, exp, firebase_id, bio, email };
     axios
       .post(userAPI, user)
       .then(() => {

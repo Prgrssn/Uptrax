@@ -1,3 +1,15 @@
+@use "../../styles/partials/variables" as *;
+
+.match {
+  position: relative;
+
+  &__title {
+    margin: 1rem;
+    color: $dark-blue;
+    font-weight: 600;
+  }
+}
+
 .user-card {
   position: relative;
   width: 600px;
@@ -8,6 +20,28 @@
   background-size: cover;
   background-position: center;
   box-shadow: 0 1.125rem 3.3125rem 0 rgba(0, 0, 0, 0.3);
+
+  &__title {
+    font-size: 1.5rem;
+    background: $light-blue;
+    color: $champagne;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  &__info-wrap {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0.5rem;
+  }
+
+  &__exp {
+    background: $dark-purple;
+    color: $champagne;
+    padding: 0 0.5rem;
+  }
 }
 
 .card-container {

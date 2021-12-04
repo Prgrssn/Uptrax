@@ -48,11 +48,7 @@ export default function Home() {
         <Card.Body>
           <h2>Profile</h2>
           <div>
-            {/* <img src={user.user_avatar} alt={user.name} /> */}
-            <img
-              src="https://www.californiamuseum.org/sites/main/files/imagecache/medium/main-images/robertdowneyjr_cahalloffameinductee.png?1632975955"
-              alt="Ernie is a wizard"
-            />
+            <img src={user.user_avatar} alt={user.name} />
             <div>
               <h4>{user.name}</h4>
               <p>AST: {ast}</p>

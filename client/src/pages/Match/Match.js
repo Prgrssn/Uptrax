@@ -18,11 +18,10 @@ export default function Match() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(users);
-
   return (
-    <div>
-      <h2>Match</h2>
+    <section className="match">
+      <h2 className="match__title">Match</h2>
+      <p>Find Your New Touring Partner!</p>
       <div className="card-container">
         {users.map((user) => (
           <TinderCard
@@ -34,11 +33,14 @@ export default function Match() {
               style={{ backgroundImage: `url(${user.user_avatar})` }}
               className="user-card"
             >
-              <h3>{user.name}</h3>
+              <div className="user-card__info-wrap">
+                <h3 className="user-card__title">{user.name}</h3>
+                <p className="user-card__exp">Years Exp: {user.exp}</p>
+              </div>
             </div>
           </TinderCard>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
