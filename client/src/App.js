@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ForgotPass from "./components/ForgotPass/ForgotPass";
-import AreaCard from "./components/AreaCard/AreaCard";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 import CreateProfile from "./components/CreateProfile/CreateProfile";
 import HomePage from "./pages/HomePage/HomePage";

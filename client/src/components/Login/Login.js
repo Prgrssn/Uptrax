@@ -51,7 +51,9 @@ export default function Login() {
                 required
               />
             </Form.Group>
-            <Button type="submit">Log In</Button>
+            <Button disabled={loading} type="submit">
+              Log In
+            </Button>
           </Form>
         </Card.Body>
       </Card>

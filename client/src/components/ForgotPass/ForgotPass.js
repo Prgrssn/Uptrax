@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function ForgotPass() {
   const emailRef = useRef();
@@ -43,7 +43,9 @@ export default function ForgotPass() {
                 required
               />
             </Form.Group>
-            <Button type="submit">Recover Password</Button>
+            <Button disabled={loading} type="submit">
+              Recover Password
+            </Button>
           </Form>
         </Card.Body>
       </Card>

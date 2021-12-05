@@ -5,13 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Signup.scss";
 
 export default function Signup() {
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const astRef = useRef();
-  const firstAidRef = useRef();
   const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -45,24 +41,6 @@ export default function Signup() {
           <h2 className="login-card__header">Sign Up</h2>
           {error && <Alert variant="danger">{error.message}</Alert>}
           <Form className="login-form" onSubmit={handleSignup}>
-            {/* <Form.Group id="firstname" className="login-form__group">
-              <Form.Label className="login-form__label">First Name</Form.Label>
-              <Form.Control
-                type="text"
-                ref={firstNameRef}
-                className="login-form__value"
-                required
-              />
-            </Form.Group>
-            <Form.Group id="lastname" className="login-form__group">
-              <Form.Label className="login-form__label">Last Name</Form.Label>
-              <Form.Control
-                type="text"
-                ref={lastNameRef}
-                className="login-form__value"
-                required
-              />
-            </Form.Group> */}
             <Form.Group id="email" className="login-form__group">
               <Form.Label className="login-form__label">Email</Form.Label>
               <Form.Control
@@ -92,19 +70,9 @@ export default function Signup() {
                 required
               />
             </Form.Group>
-            {/* <Form.Check
-              type="checkbox"
-              id="ast-checkbox"
-              label="I have my AST Certification"
-              ref={astRef}
-            />
-            <Form.Check
-              type="checkbox"
-              id="firstaid-checkbox"
-              label="I have First Aid Certification"
-              ref={firstAidRef}
-            /> */}
-            <Button type="submit">Sign Up</Button>
+            <Button disabled={loading} type="submit">
+              Sign Up
+            </Button>
           </Form>
         </Card.Body>
       </Card>

@@ -19,13 +19,14 @@ exports.getUserById = (req, res) => {
 };
 
 exports.postUser = (req, res) => {
-  const { name, firebase_id, exp, ast, bio } = req.body;
+  const { name, firebase_id, exp, ast, bio, email } = req.body;
   const user = {
     name,
     firebase_id,
     exp,
     ast,
     bio,
+    email,
     user_avatar: "/tour.jpeg",
   };
 

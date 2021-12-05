@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import "./Match.scss";
 
 const userApi = process.env.REACT_APP_USER_API;
-console.log(userApi);
 
 export default function Match() {
   const [users, setUsers] = useState([]);

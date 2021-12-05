@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { Card, Form, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
-import axios, { Axios } from "axios";
+import axios from "axios";
 
 const userAPI = `http://localhost:8080/api/v1/users`;
 
@@ -91,7 +91,9 @@ export default function CreateProfile() {
               ref={bioRef}
             />
             <div className="login-form__buttons">
-              <Button type="submit">Create</Button>
+              <Button disabled={loading} type="submit">
+                Create
+              </Button>
             </div>
           </Form>
         </Card.Body>

@@ -1,19 +1,13 @@
-import React, { useState, useRef } from "react";
-import { Card, Form, Button, Alert } from "react-bootstrap";
+import React, { useRef } from "react";
+import { Card, Form, Button } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function UpdateProfile() {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
   const astRef = useRef();
   const firstAidRef = useRef();
-  const { signup } = useAuth();
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
 
   const { currentUser } = useAuth();
@@ -33,7 +27,6 @@ export default function UpdateProfile() {
       <Card className="login-card">
         <Card.Body className="login-card__body">
           <h2 className="login-card__header">Update Profile</h2>
-          {error && <Alert variant="danger">{error}</Alert>}
           <Form className="login-form" onSubmit={handleUpdate}>
             <Form.Group id="firstname" className="login-form__group">
               <Form.Label className="login-form__label">First Name</Form.Label>

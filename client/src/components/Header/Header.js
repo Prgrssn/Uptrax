@@ -1,7 +1,6 @@
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import FilterHdrIcon from "@mui/icons-material/FilterHdr";
 import ExploreIcon from "@mui/icons-material/Explore";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router";
