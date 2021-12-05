@@ -2,11 +2,13 @@
 
 .match {
   position: relative;
+  background-color: $light-blue;
+  height: 100vh;
 
   &__title {
-    margin: 1rem;
-    color: $dark-blue;
-    font-weight: 600;
+    padding: 1rem;
+    color: $champagne;
+    font-weight: 500;
   }
 }
 
