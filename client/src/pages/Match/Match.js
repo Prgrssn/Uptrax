@@ -1,14 +1,21 @@
 import axios from "axios";
 import TinderCard from "react-tinder-card";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { useAuth } from "../../contexts/AuthContext";
 import "./Match.scss";
+import { Link } from "@mui/material";
 
 const userApi = process.env.REACT_APP_USER_API;
 
 export default function Match() {
   const [users, setUsers] = useState([]);
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  const onSwipe = (right) => {
+    console.log(`You Swiped:${right}`);
+  };
 
   useEffect(() => {
     axios
@@ -30,6 +37,7 @@ export default function Match() {
               key={user.id}
               className="user-swipe"
               preventSwipe={[`up`, `down`]}
+              onSwipe={onSwipe}
             >
               <div
                 style={{ backgroundImage: `url(${user.user_avatar})` }}
@@ -38,6 +46,9 @@ export default function Match() {
                 <div className="user-card__info-wrap">
                   <h3 className="user-card__title">{user.name}</h3>
                   <p className="user-card__exp">Years Exp: {user.exp}</p>
+                  <a href={`mailto:${user.email}`} className="user-card__email">
+                    Contact Me
+                  </a>
                 </div>
               </div>
             </TinderCard>
