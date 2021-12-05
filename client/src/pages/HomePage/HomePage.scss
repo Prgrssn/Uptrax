@@ -1,3 +1,47 @@
-// .home__mountains {
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
 
-// }
+.home {
+  display: flex;
+  flex-direction: column;
+  background-color: $dark-blue;
+  height: 100vh;
+
+  &__img-cont {
+    height: 25vh;
+    width: 90vw;
+    margin: 0 auto;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    filter: invert(1);
+  }
+
+  &__copy-cont {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+
+    &--desc {
+      text-align: center;
+      color: white;
+    }
+  }
+
+  &__button-cont {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  &__button {
+    background-color: $light-blue;
+    border: none;
+    color: $champagne;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+  }
+}
