@@ -1,1 +1,11 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
 
+.signup__button {
+  border: none;
+  border-radius: 4px;
+  background-color: $light-blue;
+  color: $champagne;
+  margin: 1rem 0;
+  padding: 0.5rem;
+}

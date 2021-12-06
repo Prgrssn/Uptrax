@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Card, Form, Button, Alert } from "react-bootstrap";
+import { Card, Form, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import "./Signup.scss";
@@ -70,9 +70,9 @@ export default function Signup() {
                 required
               />
             </Form.Group>
-            <Button disabled={loading} type="submit">
+            <button className="signup__button" disabled={loading} type="submit">
               Sign Up
-            </Button>
+            </button>
           </Form>
         </Card.Body>
       </Card>
