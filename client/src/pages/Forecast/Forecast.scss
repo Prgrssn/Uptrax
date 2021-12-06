@@ -62,4 +62,18 @@
     margin: 0 auto;
     padding: 1rem 0;
   }
+
+  &__disclaimer {
+    color: $champagne;
+    font-size: 0.8rem;
+    text-align: justify;
+    width: 18rem;
+    margin: 0 auto;
+    padding: 0.5rem 0 1rem 0;
+
+    &--link {
+      text-decoration: none;
+      color: white;
+    }
+  }
 }

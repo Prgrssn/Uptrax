@@ -74,11 +74,13 @@ export default function Forecast() {
         ))}
       </article>
       <p className="forecast__disclaimer">
-        Avalanche and Weather Forecast Provided by Avalanche Canada. For a more
-        complete version of this report and access to trip planning resources,
-        please visit their{" "}
-        <a href="https://www.avalanche.ca/map/forecasts/kootenay-boundary">
-          website
+        Forecast Provided by Avalanche Canada. For a more complete version of
+        this report and access to trip planning resources, please visit their{" "}
+        <a
+          className="forecast__disclaimer--link"
+          href="https://www.avalanche.ca/map/forecasts/kootenay-boundary"
+        >
+          website.
         </a>
       </p>
     </main>
