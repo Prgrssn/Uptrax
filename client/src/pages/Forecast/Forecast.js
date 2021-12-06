@@ -7,12 +7,12 @@ const forecastAPI = process.env.REACT_APP_AVCAN_API;
 const header = { "x-api-key": process.env.REACT_APP_AVCAN_KEY };
 
 export default function Forecast() {
-  const [area, setArea] = useState();
+  const [area, setArea] = useState("");
   const [summaries, setSummaries] = useState([]);
-  const [travelAdvice, setTravelAdvice] = useState();
-  const [dateIssued, setDateIssued] = useState();
-  const [validUntil, setValidUntil] = useState();
-  const [highlights, setHighlights] = useState();
+  const [travelAdvice, setTravelAdvice] = useState([]);
+  const [dateIssued, setDateIssued] = useState("");
+  const [validUntil, setValidUntil] = useState("");
+  const [highlights, setHighlights] = useState("");
 
   useEffect(() => {
     const config = {
@@ -26,10 +26,11 @@ export default function Forecast() {
     axios(config)
       .then(function (response) {
         const report = response.data;
+
         setArea(report.area.name);
-        setDateIssued(report.report.dateIssued);
-        setValidUntil(report.report.validUntill);
-        setHighlights(report.report.highlights);
+        setDateIssued(new Date(report.report.dateIssued).toString());
+        setValidUntil(new Date(report.report.validUntil).toString());
+        setHighlights(report.report.highlights.replace(/<[^>]*>/g, ""));
         setSummaries(report.report.summaries);
         setTravelAdvice(report.report.terrainAndTravelAdvice);
       })
@@ -38,17 +39,18 @@ export default function Forecast() {
       });
   }, []);
 
-  console.log(travelAdvice);
-
   return (
     <main>
       <h1>Forecast</h1>
       <h2>Area: {area}</h2>
+      <p>Report Issued on: {dateIssued}</p>
+      <p>Valid Until: {validUntil}</p>
       <h5>Highlights</h5>
-      <div>{highlights}</div>
+      {highlights}
+      <h5>Travel Advice</h5>
       <ul>
-        {travelAdvice.map((advice) => (
-          <li>{advice}</li>
+        {travelAdvice.map((advice, i) => (
+          <li key={[i] + 1}>{advice}</li>
         ))}
       </ul>
       {summaries.map((summary) => (
@@ -59,7 +61,10 @@ export default function Forecast() {
       <span>
         Avalanche and Weather Forecast Provided by Avalanche Canada. For a more
         complete version of this report and access to trip planning resources,
-        please visit their <a>website</a>
+        please visit their{" "}
+        <a href="https://www.avalanche.ca/map/forecasts/kootenay-boundary">
+          website
+        </a>
       </span>
     </main>
   );
