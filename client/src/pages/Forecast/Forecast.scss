@@ -1,0 +1,79 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global" as *;
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: $dark-blue;
+
+  &__info-wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 1rem;
+    background-color: $dark-blue;
+  }
+
+  &__img-cont {
+    height: 10vw;
+    width: 40vw;
+    margin: 0 auto;
+    margin-top: 1rem;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__title {
+    color: white;
+    padding: 1rem;
+  }
+
+  &__header {
+    margin-top: 1.5rem;
+    color: $sand;
+    font-weight: 600;
+  }
+
+  &__subheader {
+    color: $sand;
+    text-align: left;
+    width: 18rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  &__date {
+    color: $champagne;
+    text-align: justify;
+    padding-top: 0.5rem;
+    font-size: 0.7rem;
+    width: 18rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  &__highlights {
+    color: white;
+    text-align: justify;
+    width: 18rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+
+  &__disclaimer {
+    color: $champagne;
+    font-size: 0.8rem;
+    text-align: justify;
+    width: 18rem;
+    margin: 0 auto;
+    padding: 0.5rem 0 1rem 0;
+
+    &--link {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}

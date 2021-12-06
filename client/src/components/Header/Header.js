@@ -49,6 +49,11 @@ export default function Header() {
     navigate("/");
   };
 
+  const handleForecast = () => {
+    setAnchorEl(null);
+    navigate("/forecast");
+  };
+
   const handleLogout = () => {
     setAnchorEl(null);
     logout()
@@ -87,6 +92,7 @@ export default function Header() {
           <MenuItem onClick={handleProfile}>Profile</MenuItem>
           <MenuItem onClick={handleMatch}>Match</MenuItem>
           <MenuItem onClick={handleAreas}>Areas</MenuItem>
+          <MenuItem onClick={handleForecast}>Forecast</MenuItem>
           <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
       </div>

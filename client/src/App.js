@@ -12,6 +12,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
 import Areas from "./pages/Areas/Areas";
 import Match from "./pages/Match/Match";
+import Forecast from "./pages/Forecast/Forecast";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/areas" element={<Areas />} />
+            <Route path="/forecast" element={<Forecast />} />
             <Route
               path="/dashboard/:firebase_id"
               element={
