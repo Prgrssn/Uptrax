@@ -12,7 +12,6 @@ import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
 import Areas from "./pages/Areas/Areas";
 import Match from "./pages/Match/Match";
-import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
