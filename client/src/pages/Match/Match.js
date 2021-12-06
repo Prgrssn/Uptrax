@@ -1,9 +1,8 @@
 import axios from "axios";
 import TinderCard from "react-tinder-card";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../contexts/AuthContext";
-import nodemailer from "nodemailer";
 import "./Match.scss";
 import { Alert } from "react-bootstrap";
 
@@ -12,8 +11,6 @@ const userApi = process.env.REACT_APP_USER_API;
 export default function Match() {
   const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [activeUser, setActiveUser] = useState("");
   const { currentUser } = useAuth();
   const navigate = useNavigate();
 
@@ -22,26 +19,18 @@ export default function Match() {
       .get(userApi)
       .then((res) => {
         setUsers(res.data);
-        setActiveUser(
-          res.data.map((user) => {
-            if (user.firebase_id === currentUser.uid) return user;
-          })
-        );
       })
       .catch((err) => console.log(err));
   }, []);
 
-  const swiped = (dir, name, email) => {
+  const swiped = (dir, name) => {
     if (dir === "right") {
       setName(name);
-      setEmail(email);
     }
 
     if (dir === "left") {
       return setName("");
     }
-
-    setName("");
   };
 
   return (
@@ -56,7 +45,7 @@ export default function Match() {
               key={user.id}
               className="user-swipe"
               preventSwipe={[`up`, `down`]}
-              onSwipe={(dir) => swiped(dir, user.name, user.email)}
+              onSwipe={(dir) => swiped(dir, user.name)}
             >
               <div
                 style={{ backgroundImage: `url(${user.user_avatar})` }}
