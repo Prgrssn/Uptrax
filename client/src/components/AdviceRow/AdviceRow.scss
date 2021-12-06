@@ -1,0 +1,10 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+
+.advice-row {
+  text-align: left;
+  width: 18rem;
+  margin: 0 auto;
+  color: white;
+  padding: 0.5rem 1rem;
+}

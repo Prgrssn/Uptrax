@@ -1,10 +1,12 @@
+import "./ForecastCard.scss";
+
 export default function ForecastCard({ summary }) {
   let observations = summary.content.replace(/<[^>]*>/g, "");
 
   return (
-    <div>
-      <h5>{summary.type.display}</h5>
-      <p>{observations}</p>
+    <div className="forecast-card">
+      <h5 className="forecast-card__header">{summary.type.display}</h5>
+      <p className="forecast-card__obs">{observations}</p>
     </div>
   );
 }

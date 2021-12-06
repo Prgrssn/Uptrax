@@ -50,6 +50,7 @@ export default function Header() {
   };
 
   const handleForecast = () => {
+    setAnchorEl(null);
     navigate("/forecast");
   };
 

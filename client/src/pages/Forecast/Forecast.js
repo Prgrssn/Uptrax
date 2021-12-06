@@ -1,10 +1,13 @@
 import "./Forecast.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import ForecastCard from "../../components/ForecastCard/ForecastCard";
+import AdviceRow from "../../components/AdviceRow/AdviceRow";
+import AvCanLogo from "../../assets/images/ave-can-logo.png";
 
 const forecastAPI = process.env.REACT_APP_AVCAN_API;
-const header = { "x-api-key": process.env.REACT_APP_AVCAN_KEY };
+const APIKey = process.env.REACT_APP_AVCAN_KEY;
 
 export default function Forecast() {
   const [area, setArea] = useState("");
@@ -17,16 +20,15 @@ export default function Forecast() {
   useEffect(() => {
     const config = {
       method: "get",
-      url: "https://api.avalanche.ca/forecasts/en/products/e7677e53-9c1f-4a6d-8a38-a53c6e5244cd",
+      url: forecastAPI,
       headers: {
-        "x-api-key": "uthziK49IH5MHweAyVl5a1gusaPq4EvmvVCEaf5g",
+        "x-api-key": APIKey,
       },
     };
 
     axios(config)
       .then(function (response) {
         const report = response.data;
-
         setArea(report.area.name);
         setDateIssued(new Date(report.report.dateIssued).toString());
         setValidUntil(new Date(report.report.validUntil).toString());
@@ -40,32 +42,45 @@ export default function Forecast() {
   }, []);
 
   return (
-    <main>
-      <h1>Forecast</h1>
-      <h2>Area: {area}</h2>
-      <p>Report Issued on: {dateIssued}</p>
-      <p>Valid Until: {validUntil}</p>
-      <h5>Highlights</h5>
-      {highlights}
-      <h5>Travel Advice</h5>
-      <ul>
-        {travelAdvice.map((advice, i) => (
-          <li key={[i] + 1}>{advice}</li>
-        ))}
-      </ul>
-      {summaries.map((summary) => (
-        <div>
-          <ForecastCard key={summary.type.value} summary={summary} />
+    <main className="forecast">
+      <div className="forecast__info-wrap">
+        {/* <h1 className="forecast__title">Forecast</h1> */}
+        <div className="forecast__img-cont">
+          <img
+            src={AvCanLogo}
+            alt="Avalanche Canada Logo"
+            className="forecast__img"
+          />
         </div>
-      ))}
-      <span>
+        <h2 className="forecast__header">Area: {area}</h2>
+        <p className="forecast__date">Report Issued on: {dateIssued}</p>
+        <p className="forecast__date">Report Valid Until: {validUntil}</p>
+      </div>
+      <article className="forecast__info-wrap">
+        <h5 className="forecast__subheader">Highlights</h5>
+        <p className="forecast__highlights">{highlights}</p>
+        <h5 className="forecast__subheader">Travel Advice</h5>
+        <ul className="forecast__list">
+          {travelAdvice.map((advice) => (
+            <AdviceRow advice={advice} key={uuidv4()} />
+          ))}
+        </ul>
+      </article>
+      <article className="forecast__info-wrap">
+        {summaries.map((summary) => (
+          <div className="forecast__card">
+            <ForecastCard key={uuidv4()} summary={summary} />
+          </div>
+        ))}
+      </article>
+      <p className="forecast__disclaimer">
         Avalanche and Weather Forecast Provided by Avalanche Canada. For a more
         complete version of this report and access to trip planning resources,
         please visit their{" "}
         <a href="https://www.avalanche.ca/map/forecasts/kootenay-boundary">
           website
         </a>
-      </span>
+      </p>
     </main>
   );
 }
