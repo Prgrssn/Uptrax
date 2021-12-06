@@ -1,7 +1,6 @@
 import axios from "axios";
 import TinderCard from "react-tinder-card";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
 import { useAuth } from "../../contexts/AuthContext";
 import "./Match.scss";
 import { Alert } from "react-bootstrap";
@@ -12,7 +11,6 @@ export default function Match() {
   const [users, setUsers] = useState([]);
   const [name, setName] = useState("");
   const { currentUser } = useAuth();
-  const navigate = useNavigate();
 
   useEffect(() => {
     axios

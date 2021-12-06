@@ -1,0 +1,32 @@
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+
+.login-card {
+  background-color: $champagne;
+
+  &__body {
+    background-color: $champagne;
+  }
+
+  &__button {
+    width: 100%;
+    background-color: $light-blue;
+    border: none;
+    color: $champagne;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  &__label {
+    color: $dark-purple;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+}
