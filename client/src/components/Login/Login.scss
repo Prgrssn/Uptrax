@@ -2,10 +2,15 @@
 @use "../../styles/partials/variables" as *;
 
 .login-card {
-  background-color: $champagne;
+  background-color: $dark-blue;
+  margin: 1rem;
+
+  &__header {
+    color: $champagne;
+  }
 
   &__body {
-    background-color: $champagne;
+    background-color: $dark-blue;
   }
 
   &__button {
@@ -17,6 +22,15 @@
     border-radius: 4px;
     margin: 1.5rem 0;
   }
+
+  &__redirect {
+    color: $champagne;
+
+    &--ref {
+      text-decoration: none;
+      color: white;
+    }
+  }
 }
 
 .login-form {
@@ -25,7 +39,7 @@
   justify-content: space-around;
 
   &__label {
-    color: $dark-purple;
+    color: white;
     margin-top: 0.5rem;
     font-size: 1rem;
   }

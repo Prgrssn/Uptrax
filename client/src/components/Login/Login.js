@@ -1,6 +1,6 @@
 import "./Login.scss";
 import React, { useState, useRef } from "react";
-import { Card, Form, Button, Alert } from "react-bootstrap";
+import { Card, Form, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -28,8 +28,8 @@ export default function Login() {
 
   return (
     <article className="login">
-      <Card className="login-card">
-        <Card.Body className="login-card__body">
+      <div className="login-card">
+        <div className="login-card__body">
           <h2 className="login-card__header">Log In</h2>
           {error && <Alert variant="danger">{error.message}</Alert>}
           <Form className="login-form" onSubmit={handleLogin}>
@@ -59,13 +59,19 @@ export default function Login() {
               Log In
             </button>
           </Form>
-        </Card.Body>
-      </Card>
-      <div>
-        <Link to="/forgot-pass">Forgot Password?</Link>
+        </div>
       </div>
       <div>
-        Not a user? <Link to="/signup"> Sign Up!</Link>
+        <Link className="login-card__redirect--ref" to="/forgot-pass">
+          Forgot Password?
+        </Link>
+      </div>
+      <div className="login-card__redirect">
+        Not a user?{" "}
+        <Link className="login-card__redirect--ref" to="/signup">
+          {" "}
+          Sign Up!
+        </Link>
       </div>
     </article>
   );
