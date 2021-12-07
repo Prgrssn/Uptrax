@@ -44,7 +44,6 @@ export default function Forecast() {
   return (
     <main className="forecast">
       <div className="forecast__info-wrap">
-        {/* <h1 className="forecast__title">Forecast</h1> */}
         <div className="forecast__img-cont">
           <img
             src={AvCanLogo}
