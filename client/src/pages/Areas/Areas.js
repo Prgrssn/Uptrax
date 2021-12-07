@@ -19,7 +19,13 @@ export default function Areas() {
 
   return (
     <article className="area-section">
-      <h2 className="area-section__title">Areas</h2>
+      <div className="area-section__img-cont">
+        <img
+          className="area-section__img"
+          src="https://pcacdn.azureedge.net/-/media/pn-np/bc/kootenay/WET4/modules/hivernale-kootenay-winter-870_pca-RMacDonald.jpg?modified=20210224175553"
+          alt="kootenay national park"
+        />
+      </div>
       {areas.length !== 0 ? (
         areas.map((area) => <AreaCard key={area.id} area={area} />)
       ) : (

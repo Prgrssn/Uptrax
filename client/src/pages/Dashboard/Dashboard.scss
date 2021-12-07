@@ -67,12 +67,15 @@
   }
 
   &__name {
-    color: $champagne;
+    color: white;
     text-align: left;
     margin: 1rem;
     line-height: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    background-color: $dark-blue;
     font-weight: 700;
+    padding: 1rem;
+    width: 10rem;
   }
 
   &__ast {

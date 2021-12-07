@@ -15,15 +15,21 @@
   }
 
   &__img-cont {
-    height: 10vw;
+    height: 7vh;
     width: 40vw;
     margin: 0 auto;
     margin-top: 1rem;
   }
 
+  &__columntest-cont {
+    height: 40vh;
+    width: 100vw;
+  }
+
   &__img {
     height: 100%;
     width: 100%;
+    filter: brightness(1.25);
   }
 
   &__title {
@@ -57,7 +63,7 @@
 
   &__highlights {
     color: white;
-    text-align: justify;
+    text-align: left;
     width: 18rem;
     margin: 0 auto;
     padding: 1rem 0;
