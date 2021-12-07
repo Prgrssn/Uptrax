@@ -17,8 +17,6 @@ export default function Areas() {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log(areas);
-
   return (
     <article className="area-section">
       <h2 className="area-section__title">Areas</h2>
