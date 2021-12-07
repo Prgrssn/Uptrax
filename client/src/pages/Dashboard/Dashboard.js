@@ -11,10 +11,10 @@ export default function Home() {
   const [user, setUser] = useState([]);
   let navigate = useNavigate();
 
-  const firebaseID = currentUser.uid;
   const ast = Boolean(Number(user.ast)).toString();
 
   useEffect(() => {
+    const firebaseID = currentUser.uid;
     axios
       .get(`${userAPI}/${firebaseID}`)
       .then((res) => {
@@ -23,10 +23,6 @@ export default function Home() {
       })
       .catch((err) => console.log(err));
   }, []);
-
-  function handleUpdate() {
-    navigate("/update");
-  }
 
   function handleLogout() {
     logout()
@@ -55,9 +51,6 @@ export default function Home() {
         </div>
       </article>
       <section className="dashboard__button-wrap">
-        <button className="dashboard__button" onClick={handleUpdate}>
-          Update Profile
-        </button>
         <button className="dashboard__button" onClick={handleLogout}>
           Log Out
         </button>

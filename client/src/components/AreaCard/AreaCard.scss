@@ -3,20 +3,23 @@
 .area-card {
   display: flex;
   flex-direction: column;
+  margin: 1rem;
 
   &__body {
-    background-color: $champagne;
+    background-color: $dark-blue;
   }
 
   &__area-name {
-    color: $dark-blue;
+    color: $champagne;
     text-align: left;
+    margin-top: 1rem;
   }
 
   &__area-desc {
-    color: $dark-purple;
-    text-align: left;
+    color: white;
+    text-align: justify;
     margin: 1rem 0;
+    width: 21rem;
   }
 
   &__wrapper {
@@ -28,6 +31,8 @@
     padding-bottom: 56.25%;
     padding-top: 25px;
     height: 0;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
   }
 
   &__iframe {

@@ -16,6 +16,10 @@ export default function HomePage() {
   const handleAreas = () => {
     navigate("/areas");
   };
+
+  const handleForecast = () => {
+    navigate("/forecast");
+  };
   return (
     <main className="home">
       <article className="home__copy-cont">
@@ -47,6 +51,9 @@ export default function HomePage() {
         </button>
         <button className="home__button" onClick={handleAreas}>
           Areas
+        </button>
+        <button className="home__button" onClick={handleForecast}>
+          Forecast
         </button>
       </div>
     </main>
