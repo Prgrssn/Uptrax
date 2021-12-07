@@ -1,12 +1,17 @@
 @use "../../styles/partials/variables" as *;
 
-body {
-  background-color: $champagne;
-}
-
 .area-section {
   background-color: $dark-blue;
-  padding: 1rem 0;
+
+  &__img-cont {
+    height: 20vh;
+    width: 100vw;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+  }
 
   &__title {
     background-color: $dark-blue;

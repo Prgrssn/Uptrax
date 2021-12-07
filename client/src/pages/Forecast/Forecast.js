@@ -65,6 +65,13 @@ export default function Forecast() {
           ))}
         </ul>
       </article>
+      <div className="forecast__columntest-cont">
+        <img
+          src="https://www.burton.com/blogs/media/images/pit.width-767.jpg"
+          alt="Column test"
+          className="forecast__img"
+        />
+      </div>
       <article className="forecast__info-wrap">
         {summaries.map((summary) => (
           <div className="forecast__card">

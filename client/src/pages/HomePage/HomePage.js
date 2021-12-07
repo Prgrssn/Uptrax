@@ -26,7 +26,7 @@ export default function HomePage() {
         <img
           className="home__img"
           src="https://i.pinimg.com/originals/46/ac/f5/46acf5cff2005b478d11e2dc06ed3beb.jpg"
-          alt=""
+          alt="skiers on ridge"
         />
       </div>
       <article className="home__copy-cont">
