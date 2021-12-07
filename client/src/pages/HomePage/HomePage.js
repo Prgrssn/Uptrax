@@ -22,10 +22,14 @@ export default function HomePage() {
   };
   return (
     <main className="home">
+      <div className="home__img-cont">
+        <img
+          className="home__img"
+          src="https://i.pinimg.com/originals/46/ac/f5/46acf5cff2005b478d11e2dc06ed3beb.jpg"
+          alt=""
+        />
+      </div>
       <article className="home__copy-cont">
-        <div className="home__img-cont">
-          <img src={Mountains} alt="mountains" className="home__img" />
-        </div>
         <p className="home__copy-cont--desc">
           Struggling to find new touring partners on all those dating apps?
         </p>

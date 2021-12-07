@@ -5,18 +5,18 @@
   display: flex;
   flex-direction: column;
   background-color: $dark-blue;
+  justify-content: center;
+  align-content: center;
   height: 100%;
 
   &__img-cont {
-    height: 25vh;
-    width: 90vw;
-    margin: 0 auto;
+    height: 42vh;
+    width: 100vw;
   }
 
   &__img {
     height: 100%;
     width: 100%;
-    filter: invert(1);
   }
 
   &__copy-cont {
