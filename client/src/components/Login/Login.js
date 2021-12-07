@@ -1,6 +1,6 @@
 import "./Login.scss";
 import React, { useState, useRef } from "react";
-import { Card, Form, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
