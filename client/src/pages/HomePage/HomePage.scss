@@ -22,11 +22,20 @@
   &__copy-cont {
     display: flex;
     flex-direction: column;
-    margin: 0 1rem;
+    margin: 1rem;
 
     &--desc {
-      text-align: center;
+      text-align: left;
+      color: $champagne;
+      font-family: $roboto;
+    }
+
+    &--bold {
+      text-align: left;
       color: white;
+      font-weight: 600;
+      font-family: $roboto;
+      font-size: 2rem;
     }
   }
 

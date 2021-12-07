@@ -30,20 +30,13 @@ export default function HomePage() {
         />
       </div>
       <article className="home__copy-cont">
-        <p className="home__copy-cont--desc">
-          Struggling to find new touring partners on all those dating apps?
-        </p>
-        <p className="home__copy-cont--desc">
-          We know the struggle. That's why we created UpTrax. Here, you're able
-          to find a touring partner who LOVES the suffer-fest that is the
-          up-track.
+        <p className="home__copy-cont--bold">
+          Struggling to find new touring partners on all those dating apps? We
+          know the struggle.
         </p>
         <p className="home__copy-cont--desc">
           Create a profile, swipe right to match and let the trip planning
           begin!
-        </p>
-        <p className="home__copy-cont--desc">
-          Come on, let's get after it kid!
         </p>
       </article>
       <div className="home__button-cont">
