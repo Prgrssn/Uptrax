@@ -1,11 +1,11 @@
 import "./CreateProfile.scss";
 import React, { useState, useRef } from "react";
-import { Card, Form, Button, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const userAPI = `http://localhost:8080/api/v1/users`;
+const userAPI = process.env.REACT_APP_USER_API;
 
 export default function CreateProfile() {
   const displayNameRef = useRef();
@@ -55,8 +55,8 @@ export default function CreateProfile() {
 
   return (
     <article className="create">
-      <Card className="create-card">
-        <Card.Body className="create-card__body">
+      <div className="create-card">
+        <div className="create-card__body">
           <h2 className="create-card__header">Create Profile</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form className="create-form" onSubmit={handleCreate}>
@@ -69,13 +69,13 @@ export default function CreateProfile() {
                 required
               />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="create-form__group">
               <Form.Select ref={astRef} required>
                 <option>AST Certification</option>
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </Form.Select>
-              <Form.Select ref={expRef} required>
+              <Form.Select className="create-form__group" ref={expRef} required>
                 <option>Years of Backcountry Exp</option>
                 <option value="0">None</option>
                 <option value="1">1 Year</option>
@@ -86,18 +86,23 @@ export default function CreateProfile() {
               </Form.Select>
             </Form.Group>
             <Form.Control
+              className="create-form__group"
               as="textarea"
               placeholder="Tell us a bit about yourself!"
               ref={bioRef}
             />
-            <div className="login-form__buttons">
-              <Button disabled={loading} type="submit">
+            <div className="create-form__buttons">
+              <button
+                className="create-form__button"
+                disabled={loading}
+                type="submit"
+              >
                 Create
-              </Button>
+              </button>
             </div>
           </Form>
-        </Card.Body>
-      </Card>
+        </div>
+      </div>
       <div></div>
     </article>
   );

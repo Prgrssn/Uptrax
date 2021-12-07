@@ -1,11 +1,41 @@
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/variables" as *;
 
+.signup-card {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 1rem;
+
+  &__header {
+    color: white;
+  }
+}
+
+.signup-form {
+  &__label {
+    color: $champagne;
+  }
+
+  &__group {
+    margin-top: 1rem;
+  }
+}
 .signup__button {
   border: none;
   border-radius: 4px;
   background-color: $light-blue;
   color: $champagne;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   padding: 0.5rem;
+  width: 100%;
+}
+
+.signup__redir {
+  color: white;
+
+  &--link {
+    text-decoration: none;
+    color: $champagne;
+  }
 }

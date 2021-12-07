@@ -35,38 +35,38 @@ export default function Signup() {
   };
 
   return (
-    <article className="login">
-      <Card className="login-card">
-        <Card.Body className="login-card__body">
-          <h2 className="login-card__header">Sign Up</h2>
+    <article className="signup">
+      <div className="signup-card">
+        <div className="signup-card__body">
+          <h2 className="signup-card__header">Sign Up</h2>
           {error && <Alert variant="danger">{error.message}</Alert>}
-          <Form className="login-form" onSubmit={handleSignup}>
-            <Form.Group id="email" className="login-form__group">
-              <Form.Label className="login-form__label">Email</Form.Label>
+          <Form className="signup-form" onSubmit={handleSignup}>
+            <Form.Group id="email" className="signup-form__group">
+              <Form.Label className="signup-form__label">Email</Form.Label>
               <Form.Control
                 type="email"
                 ref={emailRef}
-                className="login-form__value"
+                className="signup-form__value"
                 required
               />
             </Form.Group>
-            <Form.Group id="password" className="login-form__group">
-              <Form.Label className="login-form__label">Password</Form.Label>
+            <Form.Group id="password" className="signup-form__group">
+              <Form.Label className="signup-form__label">Password</Form.Label>
               <Form.Control
                 type="password"
                 ref={passwordRef}
-                className="login-form__value"
+                className="signup-form__value"
                 required
               />
             </Form.Group>
-            <Form.Group id="password-confirm" className="login-form__group">
-              <Form.Label className="login-form__label">
+            <Form.Group id="password-confirm" className="signup-form__group">
+              <Form.Label className="signup-form__label">
                 Confirm Password
               </Form.Label>
               <Form.Control
                 type="password"
                 ref={passwordConfirmRef}
-                className="login-form__value"
+                className="signup-form__value"
                 required
               />
             </Form.Group>
@@ -74,10 +74,13 @@ export default function Signup() {
               Sign Up
             </button>
           </Form>
-        </Card.Body>
-      </Card>
-      <div>
-        Already have an Account? <Link to="/login">Log In!</Link>
+        </div>
+      </div>
+      <div className="signup__redir">
+        Already have an Account?{" "}
+        <Link className="signup__redir--link" to="/login">
+          Log In!
+        </Link>
       </div>
     </article>
   );
