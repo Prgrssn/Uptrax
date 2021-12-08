@@ -53,6 +53,13 @@ $ npx knex migrate:latest
 $ npx knex seed:run
 ```
 
+### Firebase User Auth:
+- You'll have to signup for a firebase account if you do not already have one. 
+- Create a project.
+- Enable Authentication with email and password.
+- Firebase will provide Firebase Config key value pairs. Enter this information into the .env.sample file
+- Change the .env.sample to a .env file.
+
 ## APIs Used
 
 - The Avalanche Canada API requires a key. You will have to request this from AvCanada if you want the forecast feature to work.
