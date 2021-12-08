@@ -27,6 +27,10 @@ With the addition of the Avalanche Canada avy & weather forecast, UpTrax makes i
 
 - UpTrax is a mobile web application and is optimized to be used at a screen width of 400px. In the Chrome Dev Tools, set the screen width to 375-400px for the best experience.
 
+- You're able to create a new user by clicking on the signup button or signin with the following demo credentials:
+  - email: demo@demo.com
+  - pass: demo123
+
 - To clone and run this application, you'll need Git and Node.js
 
 From the command line:
