@@ -4,15 +4,6 @@
 
 ## Description
 
-<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
- padding-bottom: 48px; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEx1dZRS5A&#x2F;view?embed">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEx1dZRS5A&#x2F;view?utm_content=DAEx1dZRS5A&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">UpTrax</a> by J Young
-
 UpTrax connects backcountry users so that they can find new touring partners and plan backcountry ski tours around the area of Nelson, BC, Canada.
 
 Every winter, skiers and snowboarders from all over Canada and the world, travel to Nelson to explore the backcountry and ride some of North America's deepest and lightest powder. Although there are many backcountry users in the area, it can be difficult to find reliable and knowledgeable ski touring partners. This is especially true if you're new to the sport or are relatively inexperienced.
@@ -25,6 +16,7 @@ With the addition of the Avalanche Canada avy & weather forecast, UpTrax makes i
 
 <img width="401" alt="Screen Shot Match Page UpTrax" src="https://user-images.githubusercontent.com/79485612/145257128-6232043d-8b0a-4c52-b532-b653855a5a0f.png"> <img width="401" alt="Screen Shot Areas Page UpTrax" src="https://user-images.githubusercontent.com/79485612/145257202-b8d8275d-6501-405a-82f7-cd866a7f6c84.png">
 <img width="402" alt="Screen Shot Forecast Page UpTrax" src="https://user-images.githubusercontent.com/79485612/145257336-bf0df13d-6ec2-4531-a0e9-24c713ebf04e.png">
+<img width="401" alt="Screen Shot Profile Page UpTrax" src="https://user-images.githubusercontent.com/79485612/145259597-86c93b38-56e8-4522-9098-aa7c545ed2ec.png">
 
 
 ## Tech Stack
@@ -61,10 +53,21 @@ $ npx knex migrate:latest
 $ npx knex seed:run
 ```
 
+## APIs Used
+
 - The Avalanche Canada API requires a key. You will have to request this from AvCanada if you want the forecast feature to work.
+- Wireframes from FatMaps
+
+## Pride Points
+
+- The forecast page is updated auto-magically through the use of the Avalanche Canada API. Up until this project I had not made a call to an API that returned so much data in a complicated structure. I really enjoyed having to sort through the information to find what I wanted displayed on the app and that I had to use different JS methods to get that information to be human readable. 
+
+- Having a full-stack web app: We did not really spend that much time on databases in the cohort, and although the tables only have 1:1 relationships, I'm excited that I was able to include this in the project.
+
+- Firebase User Authentication: This took me a bit of time to figure out. It was a good challenge that taught me about auth contexts and forced me to think outside the box to create a data model for a user that worked with both firebase auth and my own database. I ended up using the firebase uid as a foreign key on the database so that both sides understood who was actively using the app. 
 
 
-##Future Features
+## Future Features
 
 UpTrax aims to be a one stop shop with all the necessary resources for meeting new touring partners and planning ski tour objectives built into the app. Some of the features that I would like to work on after the Web Development Bootcamp include:
 
